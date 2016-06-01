@@ -1,0 +1,34 @@
+PODS:
+  - ObjectMapper (1.3.0)
+  - OMGHTTPURLRQ (3.1.2):
+    - OMGHTTPURLRQ/RQ (= 3.1.2)
+  - OMGHTTPURLRQ/FormURLEncode (3.1.2)
+  - OMGHTTPURLRQ/RQ (3.1.2):
+    - OMGHTTPURLRQ/FormURLEncode
+    - OMGHTTPURLRQ/UserAgent
+  - OMGHTTPURLRQ/UserAgent (3.1.2)
+  - PromiseKit (3.2.0):
+    - PromiseKit/Foundation (= 3.2.0)
+    - PromiseKit/QuartzCore (= 3.2.0)
+    - PromiseKit/UIKit (= 3.2.0)
+  - PromiseKit/CorePromise (3.2.0)
+  - PromiseKit/Foundation (3.2.0):
+    - OMGHTTPURLRQ (~> 3.1.0)
+    - PromiseKit/CorePromise
+  - PromiseKit/QuartzCore (3.2.0):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (3.2.0):
+    - PromiseKit/CorePromise
+
+DEPENDENCIES:
+  - ObjectMapper (~> 1.3)
+  - PromiseKit (~> 3.0)
+
+SPEC CHECKSUMS:
+  ObjectMapper: 4eb08a726e9791a93b2632049951b56a7c17e471
+  OMGHTTPURLRQ: 38316b56d88125c600bcdb16df8329147da2b0ee
+  PromiseKit: 1db024241265f428137a9f3c00ff9590740c4be6
+
+PODFILE CHECKSUM: cc321d63bfde4e451abedcf9671043888230ca7f
+
+COCOAPODS: 1.0.0
