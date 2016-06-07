@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
 
 	s.requires_arc = true
 
-	s.dependency "PromiseKit" , "~> 3.0"
+	s.dependency 'PromiseKit/CorePromise' , '~> 3.0'
 	s.dependency 'ObjectMapper', '~> 1.1'
 
 end

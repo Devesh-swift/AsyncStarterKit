@@ -7,6 +7,6 @@ target 'AsyncStarterKit' do
 
   # Pods for AsyncStarterKit
 
-  pod 'PromiseKit', '~> 3.0'
+  pod 'PromiseKit/CorePromise', '~> 3.0'
   pod 'ObjectMapper', '~> 1.3'
 end

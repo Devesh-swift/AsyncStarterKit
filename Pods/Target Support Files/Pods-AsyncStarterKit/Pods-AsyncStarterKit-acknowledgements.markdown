@@ -1,10 +1,6 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
-## OMGHTTPURLRQ
-
-See README.markdown for full license text.
-
 ## ObjectMapper
 
 The MIT License (MIT)
