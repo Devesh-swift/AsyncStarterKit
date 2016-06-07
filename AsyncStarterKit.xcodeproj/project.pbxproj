@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3C29BD78BFE9E38FD9D7A934 /* Pods_AsyncStarterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75D1F941B61A8CF6E6EE67F8 /* Pods_AsyncStarterKit.framework */; };
+		CF1D46241D0727FE00302127 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1D46231D0727FE00302127 /* Post.swift */; };
+		CF1D46281D07289000302127 /* PostsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1D46271D07289000302127 /* PostsService.swift */; };
 		CF5B15841CFF4DF50037021A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5B15831CFF4DF50037021A /* AppDelegate.swift */; };
 		CF5B15861CFF4DF50037021A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5B15851CFF4DF50037021A /* ViewController.swift */; };
 		CF5B15891CFF4DF50037021A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF5B15871CFF4DF50037021A /* Main.storyboard */; };
@@ -20,6 +22,8 @@
 		257BABB67E204175A610B9A4 /* Pods-AsyncStarterKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsyncStarterKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-AsyncStarterKit/Pods-AsyncStarterKit.release.xcconfig"; sourceTree = "<group>"; };
 		3669F5BBCE77E9B77547C684 /* Pods-AsyncStarterKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsyncStarterKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AsyncStarterKit/Pods-AsyncStarterKit.debug.xcconfig"; sourceTree = "<group>"; };
 		75D1F941B61A8CF6E6EE67F8 /* Pods_AsyncStarterKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AsyncStarterKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF1D46231D0727FE00302127 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		CF1D46271D07289000302127 /* PostsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsService.swift; sourceTree = "<group>"; };
 		CF5B15801CFF4DF50037021A /* AsyncStarterKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AsyncStarterKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF5B15831CFF4DF50037021A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF5B15851CFF4DF50037021A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +63,22 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		CF1D46251D07286E00302127 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CF1D46231D0727FE00302127 /* Post.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		CF1D46261D07287700302127 /* ServiceLayer */ = {
+			isa = PBXGroup;
+			children = (
+				CF1D46271D07289000302127 /* PostsService.swift */,
+			);
+			name = ServiceLayer;
+			sourceTree = "<group>";
+		};
 		CF5B15771CFF4DF50037021A = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +101,8 @@
 		CF5B15821CFF4DF50037021A /* AsyncStarterKit */ = {
 			isa = PBXGroup;
 			children = (
+				CF1D46261D07287700302127 /* ServiceLayer */,
+				CF1D46251D07286E00302127 /* Model */,
 				CF5B15831CFF4DF50037021A /* AppDelegate.swift */,
 				CF5B15851CFF4DF50037021A /* ViewController.swift */,
 				CF5B15871CFF4DF50037021A /* Main.storyboard */,
@@ -221,9 +243,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF1D46281D07289000302127 /* PostsService.swift in Sources */,
 				CF5B15971CFF4E8F0037021A /* AsyncStarterKit.swift in Sources */,
 				CF5B15861CFF4DF50037021A /* ViewController.swift in Sources */,
 				CF5B15841CFF4DF50037021A /* AppDelegate.swift in Sources */,
+				CF1D46241D0727FE00302127 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

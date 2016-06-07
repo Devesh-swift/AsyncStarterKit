@@ -9,17 +9,37 @@
 import UIKit
 
 class ViewController: UIViewController {
+	
+	@IBOutlet weak var textView: UITextView!
 
+	var service = PostsService()
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		// Do any additional setup after loading the view, typically from a nib.
+
 	}
 
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
-	}
 
+	@IBAction func get(sender: AnyObject) {
+		
+		service.getAllPosts().then {
+			(posts) -> Void in
+			self.textView.text = posts.first?.body
+		}
+	}
+	
+	
+	@IBAction func post(sender: AnyObject) {
+		
+		let post = Post()
+		post.title = "test"
+		
+		service.createPost(post).then {
+			post -> Void in
+			self.textView.text = "Posted: \(post.title)"
+		}
+		
+	}
 
 }
 
