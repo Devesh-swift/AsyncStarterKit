@@ -9,7 +9,6 @@
 import Foundation
 import ObjectMapper
 import PromiseKit
-import OMGHTTPURLRQ
 
 //MARK: - ObjectMapper Promises -
 
@@ -104,16 +103,16 @@ enum HTTPMethod:String {
 
 public extension NSURLSession {
 	
-	func GET<T:Mappable>(url: String, parameters: [NSObject : AnyObject]? = nil) -> Promise<T> {
+	func GET<T:Mappable>(url: String) -> Promise<T> {
 		return Promise()
-			.thenInBackground { NSURLSession.GET(url, query: parameters) }
+			.thenInBackground { self.dataTaskPromise(url, method: .GET, body: nil) }
 			.thenInBackground ( NSJSONSerialization.toObject )
 			.thenInBackground ( Mapper<T>().fromObject )
 	}
 	
-	func GET<T:Mappable>(url: String, parameters: [NSObject : AnyObject]? = nil) -> Promise<[T]> {
+	func GET<T:Mappable>(url: String) -> Promise<[T]> {
 		return Promise()
-			.thenInBackground { NSURLSession.GET(url, query: parameters) }
+			.thenInBackground { self.dataTaskPromise(url, method: .GET, body: nil) }
 			.thenInBackground ( NSJSONSerialization.toObject )
 			.thenInBackground ( Mapper<T>().fromArray )
 	}
