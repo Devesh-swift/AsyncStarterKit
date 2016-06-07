@@ -10,6 +10,7 @@
 		3C29BD78BFE9E38FD9D7A934 /* Pods_AsyncStarterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75D1F941B61A8CF6E6EE67F8 /* Pods_AsyncStarterKit.framework */; };
 		CF1D46241D0727FE00302127 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1D46231D0727FE00302127 /* Post.swift */; };
 		CF1D46281D07289000302127 /* PostsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1D46271D07289000302127 /* PostsService.swift */; };
+		CF1D462A1D073C4400302127 /* AsyncStarterKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = CF1D46291D073C4400302127 /* AsyncStarterKit.podspec */; };
 		CF5B15841CFF4DF50037021A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5B15831CFF4DF50037021A /* AppDelegate.swift */; };
 		CF5B15861CFF4DF50037021A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5B15851CFF4DF50037021A /* ViewController.swift */; };
 		CF5B15891CFF4DF50037021A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF5B15871CFF4DF50037021A /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 		75D1F941B61A8CF6E6EE67F8 /* Pods_AsyncStarterKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AsyncStarterKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF1D46231D0727FE00302127 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		CF1D46271D07289000302127 /* PostsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsService.swift; sourceTree = "<group>"; };
+		CF1D46291D073C4400302127 /* AsyncStarterKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AsyncStarterKit.podspec; sourceTree = "<group>"; };
 		CF5B15801CFF4DF50037021A /* AsyncStarterKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AsyncStarterKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF5B15831CFF4DF50037021A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF5B15851CFF4DF50037021A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 		CF5B15771CFF4DF50037021A = {
 			isa = PBXGroup;
 			children = (
+				CF1D46291D073C4400302127 /* AsyncStarterKit.podspec */,
 				CF5B15951CFF4E780037021A /* Sources */,
 				CF5B15821CFF4DF50037021A /* AsyncStarterKit */,
 				CF5B15811CFF4DF50037021A /* Products */,
@@ -182,6 +185,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF1D462A1D073C4400302127 /* AsyncStarterKit.podspec in Resources */,
 				CF5B158E1CFF4DF50037021A /* LaunchScreen.storyboard in Resources */,
 				CF5B158B1CFF4DF50037021A /* Assets.xcassets in Resources */,
 				CF5B15891CFF4DF50037021A /* Main.storyboard in Resources */,
