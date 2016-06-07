@@ -126,13 +126,13 @@ public extension NSURLSession {
 			.thenInBackground { _ in () }
 	}
 	
-	func POST<Output:Mappable,Input:Mappable>(url: String, body:Input) -> Promise<Output> {
+	func POST<T:Mappable,U:Mappable>(url: String, body:U) -> Promise<T> {
 		return Promise(body)
 			.thenInBackground ( Mapper().toObject )
 			.thenInBackground ( NSJSONSerialization.toData )
 			.thenInBackground { self.dataTaskPromise(url, method: .POST, body: $0) }
 			.thenInBackground ( NSJSONSerialization.toObject )
-			.thenInBackground ( Mapper<Output>().fromObject )
+			.thenInBackground ( Mapper<T>().fromObject )
 	}
 	
 	func POST<T:Mappable,U:Mappable>(url: String, body:[U]) -> Promise<T> {
