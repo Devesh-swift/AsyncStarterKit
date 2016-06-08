@@ -156,9 +156,16 @@ public extension NSURLSession {
 	// MARK: base
 	internal func dataTaskPromise(url:String, method:HTTPMethod, body:NSData?) -> Promise<NSData> {
 		
-		if let realUrl = NSURL(string: url) {
-			
-			let request = NSMutableURLRequest(URL: realUrl)
+		if let validUrl = NSURL(string: url) {
+			return dataTaskPromise(validUrl,method: method,body: body)
+		} else {
+			return Promise(error: NSURLSessionError.BadURL)
+		}
+	}
+	
+	internal func dataTaskPromise(url:NSURL, method:HTTPMethod, body:NSData?) -> Promise<NSData> {
+		
+			let request = NSMutableURLRequest(URL: url)
 			request.HTTPMethod = method.rawValue
 			if body != nil {
 				request.HTTPBody = body
@@ -166,10 +173,6 @@ public extension NSURLSession {
 			}
 			
 			return dataTaskPromise(request)
-		} else {
-			return Promise(error: NSURLSessionError.BadURL)
-		}
-
 	}
 	
 	func dataTaskPromise(request:NSURLRequest) -> Promise<NSData> {
