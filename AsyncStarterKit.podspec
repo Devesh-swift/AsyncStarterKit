@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 	s.name         = "AsyncStarterKit"
-	s.version      = "1.0.0"
+	s.version      = "1.0.1"
 	s.summary      = "A starter Kit for those who want to have a quick start with PromiseKit and ObjectMapper"
 
 	s.homepage     = "https://github.com/jonasman/AsyncStarterKit"
