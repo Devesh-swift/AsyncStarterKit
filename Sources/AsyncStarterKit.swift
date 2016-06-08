@@ -103,76 +103,77 @@ enum HTTPMethod:String {
 
 public extension NSURLSession {
 	
-	func GET<T:Mappable>(url: String) -> Promise<T> {
+	func GET<T:Mappable>(url: String, headers:[String:String]? = nil) -> Promise<T> {
 		return Promise()
-			.thenInBackground { self.dataTaskPromise(url, method: .GET, body: nil) }
+			.thenInBackground { self.dataTaskPromise(url, method: .GET, headers: headers, body: nil) }
 			.thenInBackground ( NSJSONSerialization.toObject )
 			.thenInBackground ( Mapper<T>().fromObject )
 	}
 	
-	func GET<T:Mappable>(url: String) -> Promise<[T]> {
+	func GET<T:Mappable>(url: String, headers:[String:String]? = nil) -> Promise<[T]> {
 		return Promise()
-			.thenInBackground { self.dataTaskPromise(url, method: .GET, body: nil) }
+			.thenInBackground { self.dataTaskPromise(url, method: .GET, headers: headers, body: nil) }
 			.thenInBackground ( NSJSONSerialization.toObject )
 			.thenInBackground ( Mapper<T>().fromArray )
 	}
 	
-	func POST<U:Mappable>(url: String, body:U) -> Promise<()> {
+	func POST<U:Mappable>(url: String, headers:[String:String]? = nil, body:U) -> Promise<()> {
 		return Promise(body)
 			.thenInBackground ( Mapper().toJSON )
 			.thenInBackground ( NSJSONSerialization.toData )
-			.thenInBackground { self.dataTaskPromise(url, method: .POST, body: $0) }
+			.thenInBackground { self.dataTaskPromise(url, method: .POST, headers: headers, body: $0) }
 			.thenInBackground { _ in () }
 	}
 	
-	func POST<T:Mappable,U:Mappable>(url: String, body:U) -> Promise<T> {
+	func POST<T:Mappable,U:Mappable>(url: String, headers:[String:String]? = nil, body:U) -> Promise<T> {
 		return Promise(body)
 			.thenInBackground ( Mapper().toObject )
 			.thenInBackground ( NSJSONSerialization.toData )
-			.thenInBackground { self.dataTaskPromise(url, method: .POST, body: $0) }
+			.thenInBackground { self.dataTaskPromise(url, method: .POST, headers: headers, body: $0) }
 			.thenInBackground ( NSJSONSerialization.toObject )
 			.thenInBackground ( Mapper<T>().fromObject )
 	}
 	
-	func POST<T:Mappable,U:Mappable>(url: String, body:[U]) -> Promise<T> {
+	func POST<T:Mappable,U:Mappable>(url: String, headers:[String:String]? = nil, body:[U]) -> Promise<T> {
 		return Promise(body)
 			.thenInBackground ( Mapper().toArray )
 			.thenInBackground ( NSJSONSerialization.toData )
-			.thenInBackground { self.dataTaskPromise(url, method: .POST, body: $0) }
+			.thenInBackground { self.dataTaskPromise(url, method: .POST, headers: headers, body: $0) }
 			.thenInBackground ( NSJSONSerialization.toObject )
 			.thenInBackground ( Mapper<T>().fromObject )
 	}
 	
-	func POST<T:Mappable,U:Mappable>(url: String, body:U) -> Promise<[T]> {
+	func POST<T:Mappable,U:Mappable>(url: String, headers:[String:String]? = nil, body:U) -> Promise<[T]> {
 		return Promise(body)
 			.thenInBackground ( Mapper().toObject )
 			.thenInBackground ( NSJSONSerialization.toData )
-			.thenInBackground { self.dataTaskPromise(url, method: .POST, body: $0) }
+			.thenInBackground { self.dataTaskPromise(url, method: .POST, headers: headers, body: $0) }
 			.thenInBackground ( NSJSONSerialization.toObject )
 			.thenInBackground ( Mapper<T>().fromArray )
 	}
 	
 	
 	// MARK: base
-	internal func dataTaskPromise(url:String, method:HTTPMethod, body:NSData?) -> Promise<NSData> {
+	internal func dataTaskPromise(url:String, method:HTTPMethod,headers:[String:String]? = nil, body:NSData?) -> Promise<NSData> {
 		
 		if let validUrl = NSURL(string: url) {
-			return dataTaskPromise(validUrl,method: method,body: body)
+			return dataTaskPromise(validUrl,method: method, headers: headers, body: body)
 		} else {
 			return Promise(error: NSURLSessionError.BadURL)
 		}
 	}
 	
-	internal func dataTaskPromise(url:NSURL, method:HTTPMethod, body:NSData?) -> Promise<NSData> {
+	internal func dataTaskPromise(url:NSURL, method:HTTPMethod, headers:[String:String]? = nil, body:NSData?) -> Promise<NSData> {
 		
-			let request = NSMutableURLRequest(URL: url)
-			request.HTTPMethod = method.rawValue
-			if body != nil {
-				request.HTTPBody = body
-				request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
-			}
-			
-			return dataTaskPromise(request)
+		let request = NSMutableURLRequest(URL: url)
+		request.HTTPMethod = method.rawValue
+		request.allHTTPHeaderFields = headers
+		if body != nil {
+			request.HTTPBody = body
+			request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+		}
+		
+		return dataTaskPromise(request)
 	}
 	
 	func dataTaskPromise(request:NSURLRequest) -> Promise<NSData> {
